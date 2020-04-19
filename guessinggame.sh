@@ -6,19 +6,26 @@ echo " Don't worry, i will give you hint after every input and you will be allow
 
 echo ">> please input initial guess and press enter"
 
-filecount=$( ls | wc -l)
+filecount=$( ls -A | wc -l) #Counting almost all files which includes hidden files
 
-read input
+function take_input {
+	read input
+	while ! [[ "$input" =~ ^[0-9]+$ ]]
+	do 
+	echo "Pease input integer only"
+	read input
+	done 
+	}
 
-function check_input {
+function check {
 	while [[ $input -ne $filecount ]]
 	do
 		if [[ $input -gt $filecount ]]
 		then echo ">>>>> Your input is too high, please enter input again"
-		read input
+		take_input
 		else
 		echo ">>>>> Your input is too low, please enter input again"
-		read input
+		take_input
 		fi
 	done
 	if [[ $filecount -gt 1 ]]
@@ -30,8 +37,9 @@ function check_input {
 	else
 	echo "You are right, there is one file in this directory, well done"
 	fi
-			}
-check_input
+	}
+
+take_input			}
+check
 
 echo "The end!!"
-
