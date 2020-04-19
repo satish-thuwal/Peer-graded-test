@@ -6,12 +6,14 @@ echo " Don't worry, i will give you hint after every input and you will be allow
 
 echo ">> please input initial guess and press enter"
 
+filecount=$( ls | wc -l)
+
 read input
 
 function check_input {
-	while [[ $input -ne 3 ]]
+	while [[ $input -ne $filecount ]]
 	do
-		if [[ $input -gt 3 ]]
+		if [[ $input -gt $filecount ]]
 		then echo ">>>>> Your input is too high, please enter input again"
 		read input
 		else
@@ -19,7 +21,15 @@ function check_input {
 		read input
 		fi
 	done
-	echo "You are right, there are 3 files in this directory, well done"
+	if [[ $filecount -gt 1 ]]
+	then
+	echo "You are right, there are $filecount files in this directory, well done"
+	elif [[ $filecount -eq 0 ]]
+	then
+	echo "You are right, there are no files in this directory, you should add some bbye"
+	else
+	echo "You are right, there is one file in this directory, well done"
+	fi
 			}
 check_input
 
