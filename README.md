@@ -1,6 +1,6 @@
 **The Guessing Game**
  
 The lines of code in the gussing game bash script is :
-37
+45
   
-The make was run at Sun Apr 19 16:45:54 IST 2020 
+The make was run at Sun Apr 19 17:35:29 IST 2020 

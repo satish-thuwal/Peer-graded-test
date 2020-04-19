@@ -1,6 +1,3 @@
-#!/bin/bash
-
-
 README.md: guessinggame.sh
 	touch README.md
 	echo "**The Guessing Game**" > README.md
