@@ -39,7 +39,7 @@ function check {
 	fi
 	}
 
-take_input			}
+take_input			
 check
 
 echo "The end!!"
